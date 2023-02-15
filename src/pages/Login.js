@@ -34,26 +34,23 @@ const Login = () => {
     const { name, email, password } = values;
 
     if (!name) {
-      setNameError(true);
       const msg = 'Please enter your name';
-      handleError(msg);
+      handleError(msg, setNameError);
     } else {
       setNameError(false);
     }
 
     if (!email || validateEmail(email)) {
-      setEmailError(true);
       const msg = 'Please enter a valid email';
-      handleError(msg);
+      handleError(msg, setEmailError);
     } else {
       setEmailError(false);
     }
 
 
     if (!password) {
-      setPasswordError(true);
       const msg = 'Please enter a password';
-      handleError(msg);
+      handleError(msg, setPasswordError);
     } else {
       setPasswordError(false);      
     }
@@ -73,7 +70,8 @@ const Login = () => {
     }
   };
 
-  const handleError = (msg) => {
+  const handleError = (msg, setMethod) => {
+    setMethod(true);
     const message = errorMessage;
     message.push(msg);
     setErrorMessage(message);
@@ -120,10 +118,9 @@ const Login = () => {
           {isLoading ? 'loading...' : 'Log In'}
         </button>
       </form>
-      <Modal
-        isModalOpen={isError}
+      {isError && <Modal
         closeModal={closeModal}
-        message={errorMessage} />
+        message={errorMessage} />}
     </Wrapper>
   );
 };

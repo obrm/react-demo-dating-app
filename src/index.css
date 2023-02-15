@@ -415,12 +415,6 @@ Modal
   display: grid;
   place-items: center;
   transition: var(--transition);
-  visibility: hidden;
-  z-index: -1;
-}
-/* OPEN/CLOSE MODAL */
-.show-modal {
-  visibility: visible;
   z-index: 10;
 }
 
