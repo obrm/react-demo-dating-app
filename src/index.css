@@ -279,6 +279,11 @@ ul {
 .btn-block {
   height: 35px;
 }
+
+.form-input.error {
+  border: 2px solid var(--clr-red-dark);  
+}
+
 .form-row {
   margin-bottom: 1rem;
 }
@@ -395,3 +400,56 @@ ul {
 }
 
 
+/*
+=============== 
+Modal
+===============
+*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+  transition: var(--transition);
+  visibility: hidden;
+  z-index: -1;
+}
+/* OPEN/CLOSE MODAL */
+.show-modal {
+  visibility: visible;
+  z-index: 10;
+}
+
+.modal-container {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  width: 40vw;
+  height: 40vh;
+  padding: 6rem;
+  padding-top: 4rem;
+  max-width: var(--fixed-width);
+  text-align: center;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.modal-container h3 {
+  text-transform: none;
+}
+
+.close-modal-btn {
+  position: absolute;
+  bottom: 3rem;
+  right: 50%;
+  transform: translateX(50%);
+  padding: .35rem 1.5rem;
+  font-size: 1rem;
+  color: var(--clr-white);
+  cursor: pointer;
+  margin-top: 2rem;
+}
