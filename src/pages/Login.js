@@ -31,7 +31,6 @@ const Login = () => {
     localStorage.setItem('userData', JSON.stringify(values));
 
     setTimeout(() => {
-      setIsLoading(false);
       window.location.reload(false);
     }, 2000);
   };
