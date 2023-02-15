@@ -8,23 +8,23 @@ const data = [
   },
   {
     id: 1452,
-    firstName: "Bob",
+    firstName: "Brooke",
     lastName: "Johnson",
-    image: "https://i.pravatar.cc/150?img=2",
+    image: "https://i.pravatar.cc/150?img=9",
     city: "San Francisco"
   },
   {
     id: 1453,
     firstName: "Charlie",
     lastName: "Lee",
-    image: "https://i.pravatar.cc/150?img=3",
+    image: "https://i.pravatar.cc/150?img=13",
     city: "Chicago"
   },
   {
     id: 1454,
-    firstName: "David",
+    firstName: "Jena",
     lastName: "Kim",
-    image: "https://i.pravatar.cc/150?img=4",
+    image: "https://i.pravatar.cc/150?img=10",
     city: "Los Angeles"
   },
   {
@@ -38,7 +38,7 @@ const data = [
     id: 1456,
     firstName: "Frank",
     lastName: "Chen",
-    image: "https://i.pravatar.cc/150?img=6",
+    image: "https://i.pravatar.cc/150?img=11",
     city: "Houston"
   },
   {
