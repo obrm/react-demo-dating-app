@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { Logo, FormRow } from '../components';
+import { validateEmail } from './../utils/validateEmail';
+import { Logo, FormRow, Modal } from '../components';
 import Wrapper from '../assets/wrappers/LoginPage';
 
 const initialState = {
@@ -12,6 +13,11 @@ const initialState = {
 const Login = () => {
   const [values, setValues] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState([]);
+  const [nameError, setNameError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false)
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -22,17 +28,61 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
     setIsLoading(true);
+
     const { name, email, password } = values;
-    if (!email || !password || !name) {
-      return;
+
+    if (!name) {
+      setNameError(true);
+      const msg = 'Please enter your name';
+      handleError(msg);
+    } else {
+      setNameError(false);
     }
 
-    localStorage.setItem('userData', JSON.stringify(values));
+    if (!email || validateEmail(email)) {
+      setEmailError(true);
+      const msg = 'Please enter a valid email';
+      handleError(msg);
+    } else {
+      setEmailError(false);
+    }
 
-    setTimeout(() => {
-      window.location.reload(false);
-    }, 2000);
+
+    if (!password) {
+      setPasswordError(true);
+      const msg = 'Please enter a password';
+      handleError(msg);
+    } else {
+      setPasswordError(false);      
+    }
+
+    if (!name ||
+      !email ||
+      validateEmail(email) ||
+      !password) {
+      setIsLoading(false);
+      return;
+    } else {      
+      localStorage.setItem('userData', JSON.stringify(values));
+
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 2000);
+    }
+  };
+
+  const handleError = (msg) => {
+    const message = errorMessage;
+    message.push(msg);
+    setErrorMessage(message);
+    setIsError(true);
+  };
+
+  const closeModal = () => {
+    setIsError(false);
+    setErrorMessage([]);
   };
 
   return (
@@ -43,6 +93,7 @@ const Login = () => {
         {/* name field */}
         {!values.isMember && (
           <FormRow
+            error={nameError}
             type='text'
             name='name'
             value={values.name}
@@ -51,6 +102,7 @@ const Login = () => {
         )}
         {/* email field */}
         <FormRow
+          error={emailError}
           type='email'
           name='email'
           value={values.email}
@@ -58,6 +110,7 @@ const Login = () => {
         />
         {/* password field */}
         <FormRow
+          error={passwordError}
           type='password'
           name='password'
           value={values.password}
@@ -67,6 +120,10 @@ const Login = () => {
           {isLoading ? 'loading...' : 'Log In'}
         </button>
       </form>
+      <Modal
+        isModalOpen={isError}
+        closeModal={closeModal}
+        message={errorMessage} />
     </Wrapper>
   );
 };
