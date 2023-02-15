@@ -21,7 +21,7 @@ const Landing = ({ setPage }) => {
             Log In
           </button>
         </div>
-        <img src={main} alt='job hunt' className='img main-img' />
+        <img src={main} alt='love finding app' className='img main-img' />
       </div>
     </Wrapper>
   );
