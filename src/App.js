@@ -14,14 +14,16 @@ const App = () => {
   useEffect(() => {
     if (!userData) {
       setPage(landing);
+    } else {
+      setPage(main);
     }
-  }, [landing]);
+  }, [landing, main]);
 
   switch (page) {
     case landing:
       return <Landing setPage={setPage} />;
     case login:
-      return <Login setPage={setPage} />;
+      return <Login />;
     case main:
       return <MainPage setPage={setPage} />;
     default:

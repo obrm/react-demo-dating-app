@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { toast } from 'react-toastify';
 
 import { Logo, FormRow } from '../components';
-import Wrapper from '../assets/wrappers/RegisterPage';
+import Wrapper from '../assets/wrappers/LoginPage';
 
 const initialState = {
   name: '',
@@ -10,7 +9,7 @@ const initialState = {
   password: '',
 };
 
-const Register = ({ setPage }) => {
+const Login = () => {
   const [values, setValues] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,13 +25,14 @@ const Register = ({ setPage }) => {
     setIsLoading(true);
     const { name, email, password } = values;
     if (!email || !password || !name) {
-      toast.error('Please fill out all fields');
       return;
     }
+
     localStorage.setItem('userData', JSON.stringify(values));
+
     setTimeout(() => {
       setIsLoading(false);
-      setPage("main");
+      window.location.reload(false);
     }, 2000);
   };
 
@@ -72,4 +72,4 @@ const Register = ({ setPage }) => {
   );
 };
 
-export default Register;
+export default Login;
