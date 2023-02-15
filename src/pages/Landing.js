@@ -9,7 +9,6 @@ const Landing = ({ setPage }) => {
         <Logo />
       </nav>
       <div className='container page'>
-        {/* info */}
         <div className='info'>
           <h1>
             Love <span>finding</span> app
