@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# React Dating App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Simple dating app demo for students in my bootcamp
+
+[Site demo.](https://obrm-dating-app.netlify.app)
 
 ## Available Scripts
 
