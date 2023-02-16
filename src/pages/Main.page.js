@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { PAGES } from '../constants';
 
-import Wrapper from '../styles/styled/MainPage';
+import Wrapper from '../styles/styled/Main.styled';
 import { Navbar, UsersList } from '../components';
 
 import data from '../data';

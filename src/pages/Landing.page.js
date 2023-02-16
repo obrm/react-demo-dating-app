@@ -1,7 +1,7 @@
 import { PAGES } from '../constants';
 
 import main from '../assets/images/main.svg';
-import Wrapper from '../styles/styled/LandingPage';
+import Wrapper from '../styles/styled/Landing.styled';
 import { Logo } from '../components';
 
 const [, login] = PAGES;

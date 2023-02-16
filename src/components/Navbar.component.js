@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { FaUserCircle, FaCaretDown } from 'react-icons/fa';
 
-import Wrapper from '../styles/styled/Navbar';
-import Logo from './Logo';
+import Wrapper from '../styles/styled/Navbar.styled';
+import Logo from './Logo.component';
 
 const Navbar = ({ user, setUser }) => {
   const [showLogout, setShowLogout] = useState(false);

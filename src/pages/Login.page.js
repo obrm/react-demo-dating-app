@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-import { validateEmail } from './../utils/validateEmail';
+import { validateEmail } from '../utils/validateEmail';
 import { PAGES } from '../constants';
 
 import { Logo, FormRow, Modal } from '../components';
-import Wrapper from '../styles/styled/LoginPage';
+import Wrapper from '../styles/styled/Login.styled';
 
 const initialState = {
   name: '',
