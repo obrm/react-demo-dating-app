@@ -6,16 +6,14 @@ import { PAGES } from '../constants';
 import { Logo, FormRow, Modal } from '../components';
 import Wrapper from '../styles/styled/Login.styled';
 
-const initialState = {
-  name: '',
-  email: '',
-  password: '',
-};
-
 const [landing] = PAGES;
 
 const Login = ({ setPage }) => {
-  const [values, setValues] = useState(initialState);
+  const [values, setValues] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorMessages, setErrorMessages] = useState([]);
