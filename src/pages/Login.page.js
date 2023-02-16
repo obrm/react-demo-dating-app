@@ -18,7 +18,7 @@ const Login = ({ setPage }) => {
   const [values, setValues] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState([]);
+  const [errorMessages, setErrorMessages] = useState([]);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
@@ -76,15 +76,13 @@ const Login = ({ setPage }) => {
 
   const handleError = (msg, setMethod) => {
     setMethod(true);
-    const message = errorMessage;
-    message.push(msg);
-    setErrorMessage(message);
+    setErrorMessages([...errorMessages, msg]);
     setIsError(true);
   };
 
   const closeModal = () => {
     setIsError(false);
-    setErrorMessage([]);
+    setErrorMessages([]);
   };
 
   return (
@@ -92,15 +90,13 @@ const Login = ({ setPage }) => {
       <form className='form' onSubmit={onSubmit}>
         <Logo />
         {/* name field */}
-        {!values.isMember && (
-          <FormRow
-            error={nameError}
-            type='text'
-            name='name'
-            value={values.name}
-            handleChange={handleChange}
-          />
-        )}
+        <FormRow
+          error={nameError}
+          type='text'
+          name='name'
+          value={values.name}
+          handleChange={handleChange}
+        />
         {/* email field */}
         <FormRow
           error={emailError}
@@ -124,9 +120,11 @@ const Login = ({ setPage }) => {
           Back
         </button>
       </form>
-      {isError && <Modal
-        closeModal={closeModal}
-        message={errorMessage} />}
+      {isError && (
+        <Modal
+          closeModal={closeModal}
+          messages={errorMessages} />
+      )}
     </Wrapper>
   );
 };
