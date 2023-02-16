@@ -62,6 +62,7 @@ const Login = ({ setPage }) => {
       validateEmail(email) ||
       !password) {
       setIsLoading(false);
+      setIsError(true);
       return;
     } else {
       localStorage.setItem('userData', JSON.stringify(values));
@@ -77,7 +78,6 @@ const Login = ({ setPage }) => {
     const messages = errorMessages;
     messages.push(msg);
     setErrorMessages(messages);
-    setIsError(true);
   };
 
   const closeModal = () => {
@@ -123,7 +123,8 @@ const Login = ({ setPage }) => {
       {isError && (
         <Modal
           closeModal={closeModal}
-          messages={errorMessages} />
+          messages={errorMessages}
+        />
       )}
     </Wrapper>
   );
