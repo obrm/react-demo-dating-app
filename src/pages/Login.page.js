@@ -76,7 +76,9 @@ const Login = ({ setPage }) => {
 
   const handleError = (msg, setMethod) => {
     setMethod(true);
-    setErrorMessages([...errorMessages, msg]);
+    const messages = errorMessages;
+    messages.push(msg);
+    setErrorMessages(messages);
     setIsError(true);
   };
 
