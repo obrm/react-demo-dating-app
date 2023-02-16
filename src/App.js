@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 
+import { PAGES } from './constants';
 import { MainPage, Landing, Login } from './pages';
 
 import './styles/App.css'
-
-const pagesArr = ['landing', 'login', 'main'];
 
 const userData = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : null;
 
 const App = () => {
   const [page, setPage] = useState('landing');
 
-  const [landing, login, main] = pagesArr;
+  const [landing, login, main] = PAGES;
 
   useEffect(() => {
     if (!userData) {
@@ -25,7 +24,7 @@ const App = () => {
     case landing:
       return <Landing setPage={setPage} />;
     case login:
-      return <Login />;
+      return <Login setPage={setPage} />;
     case main:
       return <MainPage setPage={setPage} />;
     default:

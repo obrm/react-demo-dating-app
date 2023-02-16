@@ -24,6 +24,17 @@ const Wrapper = styled.section`
   .btn {
     margin-top: 1rem;
   }
+
+  .btn-light {
+    background: var(--white);
+    color: var(--red-dark);
+  }
+
+  .btn-light:hover {
+    background: var(--grey-50);
+    color: var(--black);
+  }
+
   .member-btn {
     background: transparent;
     border: transparent;

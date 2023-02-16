@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import { validateEmail } from './../utils/validateEmail';
+import { PAGES } from '../constants';
+
 import { Logo, FormRow, Modal } from '../components';
 import Wrapper from '../styles/styled/LoginPage';
 
@@ -10,14 +12,16 @@ const initialState = {
   password: '',
 };
 
-const Login = () => {
+const [landing] = PAGES;
+
+const Login = ({ setPage }) => {
   const [values, setValues] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState([]);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false)
+  const [passwordError, setPasswordError] = useState(false);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -52,7 +56,7 @@ const Login = () => {
       const msg = 'Please enter a password';
       handleError(msg, setPasswordError);
     } else {
-      setPasswordError(false);      
+      setPasswordError(false);
     }
 
     if (!name ||
@@ -61,7 +65,7 @@ const Login = () => {
       !password) {
       setIsLoading(false);
       return;
-    } else {      
+    } else {
       localStorage.setItem('userData', JSON.stringify(values));
 
       setTimeout(() => {
@@ -87,7 +91,6 @@ const Login = () => {
     <Wrapper className='full-page'>
       <form className='form' onSubmit={onSubmit}>
         <Logo />
-        <h3>{values.isMember ? 'Login' : 'Login'}</h3>
         {/* name field */}
         {!values.isMember && (
           <FormRow
@@ -116,6 +119,9 @@ const Login = () => {
         />
         <button type='submit' className='btn btn-block' disabled={isLoading}>
           {isLoading ? 'loading...' : 'Log In'}
+        </button>
+        <button className='btn btn-block btn-light mt' onClick={() => setPage(landing)}>
+          Back
         </button>
       </form>
       {isError && <Modal

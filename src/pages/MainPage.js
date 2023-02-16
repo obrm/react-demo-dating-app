@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 
+import { PAGES } from '../constants';
+
 import Wrapper from '../styles/styled/MainPage';
 import { Navbar, UsersList } from './../components';
 
 import data from '../data';
 
-const userData = JSON.parse(localStorage.getItem('userData'));
+const [landing] = PAGES;
+const userDate = JSON.parse(localStorage.getItem('userData'));
 
 const MainPage = ({ setPage }) => {
-  const [user, setUser] = useState(userData);
+  const [user, setUser] = useState(userDate);
   const [users, setUsers] = useState(data);
 
   useEffect(() => {
     if (!user) {
-      setPage('landing');
+      setPage(landing);
     }
   }, [setPage, user]);
 

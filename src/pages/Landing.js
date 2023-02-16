@@ -1,6 +1,10 @@
+import { PAGES } from '../constants';
+
 import main from '../assets/images/main.svg';
-import Wrapper from '../styles/styled/LoginPage';
+import Wrapper from '../styles/styled/LandingPage';
 import { Logo } from '../components';
+
+const [, login] = PAGES;
 
 const Landing = ({ setPage }) => {
   return (
@@ -16,7 +20,7 @@ const Landing = ({ setPage }) => {
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi laboriosam eaque quisquam dicta, ea natus earum commodi molestiae autem soluta fuga illum enim, eum esse!
           </p>
-          <button onClick={() => setPage('login')} className='btn btn-hero'>
+          <button onClick={() => setPage(login)} className='btn btn-hero'>
             Log In
           </button>
         </div>
