@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { PAGES } from './constants';
-import { MainPage, Landing, Login } from './pages';
+import { Main, Landing, Login } from './pages';
 
 import './styles/App.css'
 
@@ -26,7 +26,7 @@ const App = () => {
     case login:
       return <Login setPage={setPage} />;
     case main:
-      return <MainPage setPage={setPage} />;
+      return <Main setPage={setPage} />;
     default:
       return <Landing setPage={setPage} />;
   }

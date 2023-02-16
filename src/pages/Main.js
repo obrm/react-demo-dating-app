@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 import { PAGES } from '../constants';
 
 import Wrapper from '../styles/styled/MainPage';
-import { Navbar, UsersList } from './../components';
+import { Navbar, UsersList } from '../components';
 
 import data from '../data';
 
 const [landing] = PAGES;
 const userDate = JSON.parse(localStorage.getItem('userData'));
 
-const MainPage = ({ setPage }) => {
+const Main = ({ setPage }) => {
   const [user, setUser] = useState(userDate);
   const [users, setUsers] = useState(data);
 
@@ -38,4 +38,4 @@ const MainPage = ({ setPage }) => {
   );
 };
 
-export default MainPage;
+export default Main;

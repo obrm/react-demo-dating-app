@@ -1,5 +1,5 @@
 import Landing from "./Landing";
 import Login from "./Login";
-import MainPage from './MainPage';
+import Main from './Main';
 
-export { MainPage, Landing, Login };
+export { Main, Landing, Login };
