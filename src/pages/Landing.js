@@ -1,5 +1,5 @@
 import main from '../assets/images/main.svg';
-import Wrapper from '../assets/wrappers/LandingPage';
+import Wrapper from '../styled/LoginPage';
 import { Logo } from '../components';
 
 const Landing = ({ setPage }) => {

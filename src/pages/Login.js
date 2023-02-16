@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { validateEmail } from './../utils/validateEmail';
 import { Logo, FormRow, Modal } from '../components';
-import Wrapper from '../assets/wrappers/LoginPage';
+import Wrapper from '../styled/LoginPage';
 
 const initialState = {
   name: '',

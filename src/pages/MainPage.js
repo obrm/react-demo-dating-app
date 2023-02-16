@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import Wrapper from '../assets/wrappers/MainPage';
+import Wrapper from '../styled/MainPage';
 import { Navbar, UsersList } from './../components';
 
 import data from '../data';
