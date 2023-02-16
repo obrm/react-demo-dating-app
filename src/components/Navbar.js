@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FaUserCircle, FaCaretDown } from 'react-icons/fa';
 
-import Wrapper from '../styled/Navbar';
+import Wrapper from '../styles/styled/Navbar';
 import Logo from './Logo';
 
 const Navbar = ({ user, setUser }) => {
