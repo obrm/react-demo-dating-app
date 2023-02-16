@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 
 import { MainPage, Landing, Login } from './pages';
 
+import './styles/App.css'
+
 const pagesArr = ['landing', 'login', 'main'];
 
 const userData = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : null;
