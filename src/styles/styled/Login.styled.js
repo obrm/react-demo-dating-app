@@ -21,6 +21,12 @@ const Wrapper = styled.section`
     margin-top: 1rem;
     text-align: center;
   }
+
+  small {
+    color: var(--clr-red-dark);
+    margin-top: -.5rem;
+  }
+
   .btn {
     margin-top: 1rem;
   }

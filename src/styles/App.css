@@ -288,6 +288,10 @@ ul {
   margin-bottom: 1rem;
 }
 
+.form-row.error {
+  margin-bottom: 0;
+}
+
 .form-textarea {
   height: 7rem;
 }
