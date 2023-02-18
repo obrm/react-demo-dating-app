@@ -80,7 +80,7 @@ const Login = ({ setPage }) => {
         {emailError.isError && <small>{emailError.message}</small>}
         {/* password field */}
         <FormRow
-          error={passwordError}
+          error={passwordError.isError}
           type='password'
           name='password'
           value={password}
