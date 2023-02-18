@@ -1,4 +1,4 @@
-const FormRow = ({ type, name, value, handleChange, labelText, error }) => {
+const FormRow = ({ type, name, value, handleChange, handleBlur, labelText, error }) => {
   return (
     <div className={`form-row ${error && 'error'}`}>
       <label htmlFor={name} className='form-label'>
@@ -10,6 +10,7 @@ const FormRow = ({ type, name, value, handleChange, labelText, error }) => {
         name={name}
         value={value}
         onChange={handleChange}
+        onBlur={handleBlur}
         className={`form-input ${error && 'error'}`}
       />
     </div>
