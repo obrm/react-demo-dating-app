@@ -27,11 +27,11 @@ const useInput = (message, setIsError, validationFn = null) => {
       setIsError(true);
     } else {
       resetError();
+      setIsError(false);
     };
   };
 
   const resetError = () => {
-    setIsError(false);
     setError({
       isError: false,
       message: ''

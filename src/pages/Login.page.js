@@ -91,7 +91,7 @@ const Login = ({ setPage }) => {
           handleBlur={handlePasswordBlur}
           message={passwordError.message}
         />
-        <button type='submit' className='btn btn-block' disabled={isLoading || error}>
+        <button type='submit' className='btn btn-block' disabled={error || isLoading}>
           {isLoading ? 'loading...' : 'Log In'}
         </button>
         <button className='btn btn-block btn-light mt' onClick={() => setPage(landing)}>
