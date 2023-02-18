@@ -41,6 +41,13 @@ const Wrapper = styled.section`
     color: var(--black);
   }
 
+  .btn-block:disabled,
+  .btn-block:disabled:hover {
+    background: var(--clr-red-light);
+    opacity: 0.5;
+    color: var(--white);
+  }
+
   .member-btn {
     background: transparent;
     border: transparent;

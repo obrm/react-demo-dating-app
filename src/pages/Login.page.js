@@ -11,6 +11,8 @@ import Wrapper from '../styles/styled/Login.styled';
 const [landing] = PAGES;
 
 const Login = ({ setPage }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false)
   const {
     value: name,
     error: nameError,
@@ -29,7 +31,6 @@ const Login = ({ setPage }) => {
     handleChange: handlePasswordChange,
     handleBlur: handlePasswordBlur
   } = useInput('Please enter your password');
-  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -38,11 +39,13 @@ const Login = ({ setPage }) => {
 
     if (!name || !email || !password) {
       setIsLoading(false);
+      setError(true);
       handleNameBlur();
       handleEmailBlur();
       handlePasswordBlur()
       return;
     } else {
+      setError(false);
       localStorage.setItem('userData', JSON.stringify({ name, email }));
 
       setTimeout(() => {
@@ -77,7 +80,7 @@ const Login = ({ setPage }) => {
         {emailError.isError && <small>{emailError.message}</small>}
         {/* password field */}
         <FormRow
-          error={passwordError.isError}
+          error={passwordError}
           type='password'
           name='password'
           value={password}
@@ -85,7 +88,7 @@ const Login = ({ setPage }) => {
           handleBlur={handlePasswordBlur}
         />
         {passwordError.isError && <small>{passwordError.message}</small>}
-        <button type='submit' className='btn btn-block' disabled={isLoading}>
+        <button type='submit' className='btn btn-block' disabled={isLoading || error}>
           {isLoading ? 'loading...' : 'Log In'}
         </button>
         <button className='btn btn-block btn-light mt' onClick={() => setPage(landing)}>
