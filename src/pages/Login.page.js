@@ -12,19 +12,22 @@ const [landing] = PAGES;
 
 const Login = ({ setPage }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
+
   const {
     value: name,
     error: nameError,
     handleChange: handleNameChange,
     handleBlur: handleNameBlur
   } = useInput('Please enter your name', setError);
+
   const {
     value: email,
     error: emailError,
     handleChange: handleEmailChange,
     handleBlur: handleEmailBlur
   } = useInput('Please enter a valid email', setError, validateEmail);
+
   const {
     value: password,
     error: passwordError,
@@ -66,8 +69,8 @@ const Login = ({ setPage }) => {
           value={name}
           handleChange={handleNameChange}
           handleBlur={handleNameBlur}
+          message={nameError.message}
         />
-        {nameError.isError && <small>{nameError.message}</small>}
         {/* email field */}
         <FormRow
           error={emailError.isError}
@@ -76,8 +79,8 @@ const Login = ({ setPage }) => {
           value={email}
           handleChange={handleEmailChange}
           handleBlur={handleEmailBlur}
+          message={emailError.message}
         />
-        {emailError.isError && <small>{emailError.message}</small>}
         {/* password field */}
         <FormRow
           error={passwordError.isError}
@@ -86,8 +89,8 @@ const Login = ({ setPage }) => {
           value={password}
           handleChange={handlePasswordChange}
           handleBlur={handlePasswordBlur}
+          message={passwordError.message}
         />
-        {passwordError.isError && <small>{passwordError.message}</small>}
         <button type='submit' className='btn btn-block' disabled={isLoading || error}>
           {isLoading ? 'loading...' : 'Log In'}
         </button>
