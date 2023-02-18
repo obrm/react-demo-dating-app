@@ -9,6 +9,7 @@ const useInput = (message, setIsError, validationFn = null) => {
 
   const handleChange = (e) => {
     resetError();
+    setIsError(false);
     setValue(e.target.value);
   };
 
@@ -27,7 +28,6 @@ const useInput = (message, setIsError, validationFn = null) => {
       setIsError(true);
     } else {
       resetError();
-      setIsError(false);
     };
   };
 

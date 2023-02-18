@@ -22,18 +22,18 @@ const Login = ({ setPage }) => {
   } = useInput('Please enter your name', setError);
 
   const {
-    value: email,
-    error: emailError,
-    handleChange: handleEmailChange,
-    handleBlur: handleEmailBlur
-  } = useInput('Please enter a valid email', setError, validateEmail);
-
-  const {
     value: password,
     error: passwordError,
     handleChange: handlePasswordChange,
     handleBlur: handlePasswordBlur
   } = useInput('Please enter your password', setError);
+
+  const {
+    value: email,
+    error: emailError,
+    handleChange: handleEmailChange,
+    handleBlur: handleEmailBlur
+  } = useInput('Please enter a valid email', setError, validateEmail);
 
   const onSubmit = (e) => {
     e.preventDefault();
