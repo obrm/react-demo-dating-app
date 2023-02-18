@@ -39,9 +39,10 @@ const Login = ({ setPage }) => {
 
     if (!name || !email || !validateEmail(email) || !password) {
       setIsLoading(false);
+      setError(true);
       handleNameBlur();
       handleEmailBlur();
-      handlePasswordBlur()
+      handlePasswordBlur();
       return;
     } else {
       setError(false);
