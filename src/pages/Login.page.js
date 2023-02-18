@@ -18,19 +18,19 @@ const Login = ({ setPage }) => {
     error: nameError,
     handleChange: handleNameChange,
     handleBlur: handleNameBlur
-  } = useInput('Please enter your name');
+  } = useInput('Please enter your name', setError);
   const {
     value: email,
     error: emailError,
     handleChange: handleEmailChange,
     handleBlur: handleEmailBlur
-  } = useInput('Please enter a valid email', validateEmail);
+  } = useInput('Please enter a valid email', setError, validateEmail);
   const {
     value: password,
     error: passwordError,
     handleChange: handlePasswordChange,
     handleBlur: handlePasswordBlur
-  } = useInput('Please enter your password');
+  } = useInput('Please enter your password', setError);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +39,6 @@ const Login = ({ setPage }) => {
 
     if (!name || !email || !validateEmail(email) || !password) {
       setIsLoading(false);
-      setError(true);
       handleNameBlur();
       handleEmailBlur();
       handlePasswordBlur()

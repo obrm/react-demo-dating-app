@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useInput = (message, validationFn = null) => {
+const useInput = (message, setIsError, validationFn = null) => {
   const [value, setValue] = useState('');
   const [error, setError] = useState({
     isError: false,
@@ -24,12 +24,14 @@ const useInput = (message, validationFn = null) => {
         isError: true,
         message
       });
+      setIsError(true);
     } else {
       resetError();
     };
   };
 
   const resetError = () => {
+    setIsError(false);
     setError({
       isError: false,
       message: ''
