@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 import { FaUserCircle, FaCaretDown } from 'react-icons/fa';
 
@@ -8,14 +7,6 @@ import Logo from './Logo.component';
 
 const Navbar = ({ user, setUser }) => {
   const [showLogout, setShowLogout] = useState(false);
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!user) {
-      navigate('/');
-    }
-  }, [navigate, user]);
 
   const handleLogout = () => {
     setUser(null);
