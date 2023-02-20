@@ -1,12 +1,10 @@
-import { PAGES } from '../constants';
+import { Link } from 'react-router-dom';
 
 import { Logo, FormRow } from '../components';
 import Wrapper from '../styles/styled/Login.styled';
 import useLogin from './../hooks/useLogin';
 
-const [landing] = PAGES;
-
-const Login = ({ setPage }) => {
+const Login = () => {
   const {
     name,
     nameError,
@@ -62,9 +60,9 @@ const Login = ({ setPage }) => {
         <button type='submit' className='btn btn-block' disabled={error || isLoading}>
           {isLoading ? 'loading...' : 'Log In'}
         </button>
-        <button className='btn btn-block btn-light mt' onClick={() => setPage(landing)}>
+        <Link to='/' className='btn btn-block btn-light mt'>
           Back
-        </button>
+        </Link>
       </form>
     </Wrapper>
   );

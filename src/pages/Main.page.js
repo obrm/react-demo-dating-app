@@ -1,24 +1,24 @@
 import { useState, useEffect } from 'react';
-
-import { PAGES } from '../constants';
+import { useNavigate } from 'react-router-dom';
 
 import Wrapper from '../styles/styled/Main.styled';
 import { Navbar, UsersList } from '../components';
 
 import data from '../data';
 
-const [landing] = PAGES;
 const userDate = JSON.parse(localStorage.getItem('userData'));
 
-const Main = ({ setPage }) => {
+const Main = () => {
   const [user, setUser] = useState(userDate);
   const [users, setUsers] = useState(data);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    if (!user) {
-      setPage(landing);
+    if (!user) {    
+      navigate('/');
     }
-  }, [setPage, user]);
+  }, [navigate, user]);
 
 
   const delUser = (id) => {

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 import useInput from './useInput';
 import { validateEmail } from '../utils/validateEmail';
@@ -6,6 +7,8 @@ import { validateEmail } from '../utils/validateEmail';
 const useLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const navigate = useNavigate();
 
   const {
     value: name,
@@ -41,11 +44,11 @@ const useLogin = () => {
       handlePasswordBlur();
       return;
     } else {
-      setError(false);
-      localStorage.setItem('userData', JSON.stringify({ name, email }));
-
       setTimeout(() => {
-        window.location.reload(false);
+        setIsLoading(false);
+        setError(false);
+        localStorage.setItem('userData', JSON.stringify({ name, email })); 
+        navigate('/main');
       }, 2000);
     }
   };

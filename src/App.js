@@ -1,36 +1,19 @@
-import { useState, useEffect } from 'react';
-
-import { PAGES } from './constants';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import { Main, Landing, Login } from './pages';
 
-import './styles/App.css'
-
-const userData = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : null;
+import './styles/App.css';
 
 const App = () => {
-  const [page, setPage] = useState('landing');
-
-  const [landing, login, main] = PAGES;
-
-  useEffect(() => {
-    if (!userData) {
-      setPage(landing);
-    } else {
-      setPage(main);
-    }
-  }, [landing, main]);
-
-  switch (page) {
-    case landing:
-      return <Landing setPage={setPage} />;
-    case login:
-      return <Login setPage={setPage} />;
-    case main:
-      return <Main setPage={setPage} />;
-    default:
-      return <Landing setPage={setPage} />;
-  }
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/main" element={<Main />} />
+      </Routes>
+    </Router>
+  );
 };
 
 export default App;

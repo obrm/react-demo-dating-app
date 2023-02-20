@@ -173,6 +173,7 @@ a,
 button {
   line-height: 1.15;
 }
+a,
 button:disabled {
   cursor: not-allowed;
 }
@@ -222,6 +223,7 @@ ul {
 }
 .btn-block {
   width: 100%;
+  text-align: center;
 }
 .btn-hero {
   font-size: 1.25rem;

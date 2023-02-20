@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { FaUserCircle, FaCaretDown } from 'react-icons/fa';
 
 import Wrapper from '../styles/styled/Navbar.styled';
@@ -7,8 +9,16 @@ import Logo from './Logo.component';
 const Navbar = ({ user, setUser }) => {
   const [showLogout, setShowLogout] = useState(false);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/');
+    }
+  }, [navigate, user]);
+
   const handleLogout = () => {
-    setUser('');
+    setUser(null);
     localStorage.removeItem('userData');
   };
 

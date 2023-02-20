@@ -1,12 +1,11 @@
-import { PAGES } from '../constants';
+import { Link } from 'react-router-dom';
 
 import main from '../assets/images/main.svg';
 import Wrapper from '../styles/styled/Landing.styled';
 import { Logo } from '../components';
 
-const [, login] = PAGES;
 
-const Landing = ({ setPage }) => {
+const Landing = () => {
   return (
     <Wrapper>
       <nav>
@@ -20,9 +19,9 @@ const Landing = ({ setPage }) => {
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sequi laboriosam eaque quisquam dicta, ea natus earum commodi molestiae autem soluta fuga illum enim, eum esse!
           </p>
-          <button onClick={() => setPage(login)} className='btn btn-hero'>
+          <Link to='/login' className='btn btn-hero'>
             Log In
-          </button>
+          </Link>
         </div>
         <img src={main} alt='love finding app' className='img main-img' />
       </div>
